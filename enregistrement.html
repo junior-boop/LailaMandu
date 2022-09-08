@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./prototype.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="bloc_page">
+        <h1>Enregistrement</h1>
+        <form id="form">
+            <div>
+                <div class="left">
+                    <div class="champ">
+                        <label>NOM</label>
+                        <input type="text" name="nom" id="nom">
+                    </div>
+                    <div class="champ">
+                        <label>PRENOM</label>
+                        <input type="text" name="prenom" id="prenom">
+                    </div>
+                    <div class="champ">
+                        <label>Lieu de naissance</label>
+                        <input type="text" name="ldn" id="ldn">
+                    </div>
+                    <div class="champ">
+                        <label>Date de naissance</label>
+                        <input type="date" name="ddn" id="ddn">
+                    </div>
+                    
+                </div>
+        
+                <div class="right">
+                    <div class="champ"> 
+                        <div class="petitChamp">
+                            <label>Taille</label>
+                            <input type="number" name="taille" id="taille">
+                        </div>
+                        <div class="petitChamp">
+                            <label>Poids</label>
+                            <input type="number" name="poids" id="poids">
+                        </div>
+                    </div>
+                    <div class="champ">
+                        <label>sexe</label>
+                            <div class="petitChamp radio"> 
+                                <input type="radio" name="choix" id="choix1" value="homme">homme
+                            </div>
+                            <div class="petitChamp radio"> 
+                                <input type="radio" name="choix" id="choix2" value="femme">femme
+                            </div> 
+                    </div>
+                    <div class="champ">
+                        <label>Parcours</label>
+                        <select name="parcours" id="parcours">
+                            <option value="dw">Developpement Web</option>
+                            <option value="ds">Data Science</option>
+                            <option value="an">Art Numerique</option>
+                        </select>
+                    </div>
+                    <div class="champ">
+                        <label>Matricule</label>
+                        <input type="text" name="matricule" id="matricule">
+                    </div>
+                     
+                </div>
+            </div>
+            <div class="button">
+                <button id="save">Enregistrer</button>
+                <a class="annuler" href="/index.html">
+                    Annuler
+                </a>
+            </div>
+        </form>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>

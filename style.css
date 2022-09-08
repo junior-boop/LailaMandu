@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box ;
+}
+
+.bloc_page {
+    width: 970px;
+    margin: auto;
+}
+
+
+.noms {
+    display: flex;
+    padding: 0 12px;
+}
+.noms > div {
+    display: flex;
+    height: 48px;
+    align-items: center;
+    font-weight: 700;
+}
+
+.nom, .parcours{
+    width: 25%;
+}
+.parcours {
+    justify-content: center;
+}
+.age {
+    width: 5%;
+    justify-content: center;
+}
+.sexe, .matricule, .action {
+    width : 15%;
+    justify-content: center;
+}
+.items {
+    display: flex;
+    padding: 0 12px;
+    border: 1px solid silver;
+}
+.items > div {
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+
+.items + .items {
+    margin-top: 10px;
+}
+
+.button {
+    margin-top: 15px;
+}
+
+button {
+    background-color: grey;
+    border: none;
+    padding: 7px 12px;
+}
+
+.right, .left{
+    display: inline-block;
+}
+.left {
+    margin-top: 12px;
+    margin-right: 12px;
+}
+
+.right {
+    margin-top: 15px;
+}
+
+.genre{
+    justify-content: flex-start;
+}
+.genre {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.champ {
+    width: 300px;
+    height:56px;
+ }
+
+ .champ label {
+     display: block;
+ }
+ .champ select {
+    display: flex;
+    padding: 7px 12px;
+    outline: none;
+    width: 100%;
+ }
+ .champ input {
+     display: inline-block;
+     width : 100%;
+     padding: 7px 12px;
+ }
+
+.petitChamp {
+    display: inline-block;
+    width: 49%;
+     height: 50px; 
+    }
+.petitChamp.radio {
+    display: inline-flex;
+    align-items: center;
+     height: 20px; 
+}
+.petitChamp.radio input {
+    display: inline-block;
+    width: 20%;
+     height: 20px; 
+}
+.petitChamp input {
+    display: inline-block;
+    width: 100%;
+    padding: 7px 12px;
+ }
+
+form .button button {
+    padding: 7px 12px;
+    border: none;
+    color: white;
+}
+
+.annuler {
+    display: inline-block;
+    padding: 7px 12px;
+    text-decoration: none;
+    color: black;
+}
+
+
+#block {
+    width : 70%
+}
+#block > div {
+    display: flex;
+    border: 1px solid silver;
+}
+#block > div + div {
+    margin-top: 7px;
+}
+
+#block .key {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    height: 40px;
+    width: 40%;
+}
+#block .value {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 60%;
+    font-weight: 700;
+}

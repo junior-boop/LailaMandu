@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+   <div class="bloc_page">
+    <h1>Etudiant</h1>
+        <div id="block">
+            
+            
+        </div>
+   </div> 
+   <script>
+    window.onload = () => {
+        const block = document.getElementById('block')
+        const params = window.location.search.split('=')
+        let id = params[1]
+        let l = localStorage
+
+        let data = JSON.parse(l.getItem('Etudiant'))
+
+        const Age = (d) => {
+            let actu = new Date()
+            let date = new Date(d)
+
+            let age = actu.getFullYear() - date.getFullYear()
+            return age
+        }
+
+        const Parcours = (x) => {
+            switch (x) {
+                case 'dw':
+                    return 'DEVELOPPEMENT WEB';
+                    break;
+                case 'ds':
+                    return 'DATA SCIENCE';
+                    break;
+                case 'an':
+                    return 'ART NUMERIQUE';
+                    break;
+            }
+        }
+        console.log(id)
+        for(let el of data){
+            if(id === el.id){
+                const HTML = `
+                    <div>
+                        <div class="key">Nom</div>
+                        <div class="value">${el.nom}</div>
+                    </div>
+                    <div>
+                        <div class="key"> Prénom</div>
+                        <div class="value">${el.prenom}</div>
+                    </div>
+                    <div>
+                        <div class="key">Lieu de naissance</div>
+                        <div class="value">${el.LDN}</div>
+                    </div>
+                    <div>
+                        <div class="key">Date de naissance</div>
+                        <div class="value">${el.DDN}</div>
+                    </div>
+                    <div>
+                        <div class="key">Taille</div>
+                        <div class="value">${el.taille} cm</div>
+                    </div>
+                    <div>
+                        <div class="key">Poids</div>
+                        <div class="value">${el.poids} KG</div>
+                    </div>
+                    <div>
+                        <div class="key">Sexe</div>
+                        <div class="value">${el.sexe}</div>
+                    </div>
+                    <div>
+                        <div class="key">Parcours</div>
+                        <div class="value">${Parcours(el.parcours)}</div>
+                    </div>
+                    <div>
+                        <div class="key">Matricule</div>
+                        <div class="value">${el.matricule}</div>
+                    </div>
+                
+                `
+                block.innerHTML = HTML
+            }
+        }
+        
+    }
+   </script>
+</body>
+</html>

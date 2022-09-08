@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="bloc_page">
+        <h1>Liste des Etudiants</h1>
+        
+        <div class="noms">
+            <div class="nom"> 
+                <label>Noms et Prénoms</label>
+            </div>
+            <div class="age">
+                <label>ages</label>
+            </div>
+            <div class="sexe">
+                <label>sexe</label>
+            </div>
+            <div class="parcours">
+                <label>Parcours</label>
+            </div>
+            <div class="matricule">
+                <label>Matricules</label>
+            </div>
+            <div class="action">
+                <label>Actions</label>
+            </div>
+            
+        </div>
+        <div id="liste"></div>
+        
+        <div class="button">
+            <a href="./enregistrement.html">
+                <button>Ajouter +</button>
+            </a>
+        </div>
+    </div>
+    <script>
+        window.onload = function (){
+            const liste = document.getElementById('liste')
+            let l = localStorage
+            let data = JSON.parse(l.getItem('Etudiant'))
+            
+
+            const Age = (d) => {
+                let actu = new Date()
+                let date = new Date(d)
+
+                let age = actu.getFullYear() - date.getFullYear()
+                return age
+            }
+
+            const Parcours = (x) => {
+                switch (x) {
+                    case 'dw':
+                        return 'DEVELOPPEMENT WEB';
+                        break;
+                    case 'ds':
+                        return 'DATA SCIENCE';
+                        break;
+                    case 'an':
+                        return 'ART NUMERIQUE';
+                        break;
+                }
+            }
+
+            for(let el of data){
+                const item = document.createElement('div')
+                item.classList = 'items'
+                const HTML = `
+                    <div class="nom"> 
+                        <label>${el.nom} ${el.prenom}</label>
+                    </div>
+                    <div class="age">
+                        <label>${Age(el.DDN)}</label>
+                    </div>
+                    <div class="sexe">
+                        <label>${el.sexe}</label>
+                    </div>
+                    <div class="parcours">
+                        <label>${Parcours(el.parcours)}</label>
+                    </div>
+                    <div class="matricule">
+                        <label>${el.matricule}</label>
+                    </div>
+                    <div class="action">
+                        <label>Actions</label>
+                    </div>
+                `
+                item.innerHTML = HTML
+                item.dataset.id = el.id
+                liste.appendChild(item)
+            }
+            const items = document.getElementsByClassName('items')
+            for(let el of items){
+                el.addEventListener('click', e => {
+                    location.href = '/presenterEtu.html?id='+el.dataset.id 
+                })
+            }
+            
+
+
+
+        }
+    </script>
+</body>
+</html>
